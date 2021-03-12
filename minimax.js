@@ -1,6 +1,6 @@
-const COMPUTER = "X";
-const HUMAN = "O";
-const EMPTY = "-";
+const COMPUTER = 'X';
+const HUMAN = 'O';
+const EMPTY = '-';
 
 const MAX = 10;
 const MIN = -10;
@@ -43,53 +43,61 @@ function getScore(player) {
 function evaluate(board) {
   // rows
   for (let i = 0; i < 3; i++) {
-    if (board[i][0] === board[i][1] && board[i][1] === board[i][2]) {
-      return {
-        score: getScore(board[i][0]),
-        cells: [
-          [i, 0],
-          [i, 1],
-          [i, 2],
-        ],
-      };
+    if (board[i][0] !== EMPTY) {
+      if (board[i][0] === board[i][1] && board[i][1] === board[i][2]) {
+        return {
+          score: getScore(board[i][0]),
+          cells: [
+            [i, 0],
+            [i, 1],
+            [i, 2],
+          ],
+        };
+      }
     }
   }
 
   // columns
   for (let j = 0; j < 3; j++) {
-    if (board[0][j] === board[1][j] && board[1][j] === board[2][j]) {
-      return {
-        score: getScore(board[0][j]),
-        cells: [
-          [0, j],
-          [1, j],
-          [2, j],
-        ],
-      };
+    if (board[0][j] !== EMPTY) {
+      if (board[0][j] === board[1][j] && board[1][j] === board[2][j]) {
+        return {
+          score: getScore(board[0][j]),
+          cells: [
+            [0, j],
+            [1, j],
+            [2, j],
+          ],
+        };
+      }
     }
   }
 
   // diagonals
   if (board[0][0] === board[1][1] && board[1][1] === board[2][2]) {
-    return {
-      score: getScore(board[0][0]),
-      cells: [
-        [0, 0],
-        [1, 1],
-        [2, 2],
-      ],
-    };
+    if (board[0][0] !== EMPTY) {
+      return {
+        score: getScore(board[0][0]),
+        cells: [
+          [0, 0],
+          [1, 1],
+          [2, 2],
+        ],
+      };
+    }
   }
 
   if (board[0][2] === board[1][1] && board[1][1] === board[2][0]) {
-    return {
-      score: getScore(board[0][2]),
-      cells: [
-        [0, 2],
-        [1, 1],
-        [2, 0],
-      ],
-    };
+    if (board[0][2] !== EMPTY) {
+      return {
+        score: getScore(board[0][2]),
+        cells: [
+          [0, 2],
+          [1, 1],
+          [2, 0],
+        ],
+      };
+    }
   }
 
   return 0;
