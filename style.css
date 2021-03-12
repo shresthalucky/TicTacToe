@@ -1,0 +1,37 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #fff9c4;
+  font-family: "arial", sans-serif;
+}
+
+#holder {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+table {
+  border-spacing: 12px;
+}
+
+td {
+  cursor: pointer;
+  height: 100px;
+  width: 100px;
+  text-align: center;
+  border: 2px solid #fdd835;
+  font-size: 2em;
+  font-weight: bold;
+  background-color: #ffeb3b;
+  border-radius: 6px;
+  color: #e65100;
+}
+
+td.win {
+  background-color: #ffff8d;
+  box-shadow: 0 0 20px 10px #ffe0b2;
+}
